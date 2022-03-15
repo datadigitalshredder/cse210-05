@@ -16,7 +16,7 @@ class Credit:
         pass
 
     def getCredits(self):
-        """Sets the contributors flag below game over flag if the snake collides with one of its segments (game over).
+        """Sets the contributors flag below game over flag if the snake collides with one of its own segments (game over).
         """
         return f"Updated by: {self._name1},\n{self._name2}, {self._name3},\n{self._name4}, {self._name5}"
         
