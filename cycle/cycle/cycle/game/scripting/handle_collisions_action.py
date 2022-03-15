@@ -83,11 +83,7 @@ class HandleCollisionsAction(Action):
                 score2.decrease_score()
                 if score2.get_points() < 1:
                     self._is_game_over = True
-
-            
-
-           
-        
+   
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the snake and food white if the game is over.
         
@@ -126,11 +122,9 @@ class HandleCollisionsAction(Action):
 
             for segment in segments_one:
                 segment.set_color(constants.WHITE)
-            #food.set_color(constants.WHITE)
 
             for segment in segments_two:
                 segment.set_color(constants.WHITE)
-            #food.set_color(constants.WHITE)
 
             credits = Credit()
             message.set_text_end(credits.getCredits())
