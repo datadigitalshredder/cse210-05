@@ -13,6 +13,7 @@ class Snake(Actor):
         _points (int): The number of points the food is worth.
     """
     def __init__(self, position):
+        "Constructs a new instance of Snake."
         super().__init__()
         self._segments = []
         self._prepare_body(position)
@@ -20,9 +21,16 @@ class Snake(Actor):
         self._name= ""
 
     def get_segments(self):
+        """Creates segments of the snake.
+        Returns:
+            segments: The segments of the snake.
+        """
+
         return self._segments
 
     def move_next(self):
+        """Moves segments of the snake.
+        """
         # move all segments
         for segment in self._segments:
             segment.move_next()
@@ -34,9 +42,15 @@ class Snake(Actor):
             trailing.set_velocity(velocity)
 
     def get_head(self):
+        """Creates head of the snake.
+        Returns:
+            segments (head): The head of the snake.
+        """
         return self._segments[0]
 
     def grow_tail(self, match):
+        """Grows the snake as it moves.
+        """
         tail = self._segments[-1]
         velocity = tail.get_velocity()
         offset = velocity.reverse()
@@ -54,9 +68,13 @@ class Snake(Actor):
             segment.set_color(constants.WHITE)
 
     def turn_head(self, velocity):
+        """Turns the snake's head in four possible directions as it moves.
+        """       
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self, position):
+        """Positions the snake body parts on the video with the snake color.
+        """
         x = position.get_x()
         y = position.get_y()
 
@@ -64,7 +82,6 @@ class Snake(Actor):
             position = Point(x, y + i * constants.CELL_SIZE)
             velocity = Point(0, 1 * -constants.CELL_SIZE)
             text = "8" if i == 0 else "#"
-            #color = constants.YELLOW if i == 0 else constants.GREEN
             
             segment = Actor()
             segment.set_position(position)
@@ -75,21 +92,30 @@ class Snake(Actor):
 
     # Return players' name
     def get_name(self):
+        """Gets the names of the players (You and Opponent).
+        Returns:
+            name: The name of the player.
+        """        
         return self._name
 
     # Store players' name
     def set_name(self, name):
+        """Sets the names of the players (You and Opponent).
+        """   
         self._name = name
 
     # Set snake color
     def set_color(self, color):
+        """Sets the colors of the players (You and Opponent).
+        """
         self._color = color
 
         for segment in self._segments:
             segment.set_color(self._color)
 
     def snake_tail(self, game):  
-
+        """Generates the tails of the players (You and Opponent).
+        """
         tail = self._segments[-1]
         velocity = tail.get_velocity()
         offset = velocity.reverse()

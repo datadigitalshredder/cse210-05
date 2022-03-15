@@ -32,7 +32,7 @@ def main():
 
     # create the cast
 
-    # player 1
+    # player 1 (You)
     cast = Cast()
     score1 = Score()
     score1.add_points(5)
@@ -41,7 +41,7 @@ def main():
     cast.add_actor("score1", score1)
     score1.set_position(Point(constants.MAX_X+150, 10))
 
-    # player 2
+    # player 2 (Opponent)
     score2 = Score()
     score2.add_points(5)
     score2.set_name(snake_two_name)

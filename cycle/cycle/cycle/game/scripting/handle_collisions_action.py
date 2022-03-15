@@ -9,8 +9,7 @@ class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
     
-    The responsibility of HandleCollisionsAction is to handle the situation when the snake collides
-    with the food, or the snake collides with its segments, or the game is over.
+    The responsibility of HandleCollisionsAction is to handle the situation when the snake collides with its segments the game is over.
 
     Attributes:
         _is_game_over (boolean): Whether or not the game is over.
